@@ -28,12 +28,14 @@
                     <td>{{ p.precio }} </td>
                     <td><i class="clock"></i><time data-time="#">{{ p.fecha_subida }}</time></td>
                     <td> <img  src="{{ p.imagen.url }}"> </td>
+                    <!-- <td><button>Modificar</button> </td> -->
+                    <!-- <td><button>Eliminar</button> </td> -->
                     <td> <a href="{% url 'modificar' p.id %}">Modificar</a> </td>
                     <td> <a href="{% url 'eliminar' p.id %}">Eliminar</a> </td>
                 </tr>
                 {% endfor %}
             </table>
-            <a href="{% url 'ingresar-productos' %}" class="download" style="color: #000;">Agregar Producto</a>
+            <!-- <a href="{% url 'ingresar-productos' %}" class="download" style="color: #000;">Agregar Producto</a> -->
     </div>
 </article>
 {% endblock %}

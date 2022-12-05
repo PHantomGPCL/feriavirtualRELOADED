@@ -672,7 +672,7 @@ def modProducto(request, id):
         for row in cursor.fetchall():
             cr.append({"id": row[0], "producto": row[1], "variedad": row[2], "precio": row[7]})
             conn.close()
-        return render(request, 'mod-productos.html', {'p':cr[0]})
+        return render(request, 'ingresar-productos.html', {'p':cr[0]})
     if request.method == 'POST':
         form = FormProductos(request.POST)
         if form.is_valid():
