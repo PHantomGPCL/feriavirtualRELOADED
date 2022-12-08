@@ -38,7 +38,7 @@
           <a  href="http://127.0.0.1:8000/"><img src="{% static 'img/maipologo.png' %}"></a>
         </div>
 
-        <ul class="list-unstyled components">
+        <ul class="list-unstyled CTAs">
             {%if request.user.is_authenticated %}
             <p>@{{ user.get_username }}</p>
             <div style="margin:10px">
@@ -49,51 +49,51 @@
 
             <li class="nav-op active">
               {% if request.user.rol == "1"%}  <!--Productor -->
-              <a href="{% url 'solicitudesProductor' %}" >Solicitudes Productos</a>
-              <a href="{% url 'seguimientoLista' %}" >Seguimiento productos</a>
-              <a href="{% url 'ingresar-productos'  %}" >Ingresar Productos</a>
-              <a href="{% url 'mis-productos' %}" >Mis Productos</a>
+              <a href="{% url 'solicitudesProductor' %}" class="download" style="color: #000;">Solicitudes Productos</a>
+              <a href="{% url 'seguimientoLista' %}" class="download" style="color: #000;">Seguimiento productos</a>
+              <a href="{% url 'ingresar-productos'  %}" class="download" style="color: #000;">Ingresar Productos</a>
+              <a href="{% url 'mis-productos' %}" class="download" style="color: #000;">Mis Productos</a>
               {% endif %}  
 
               {% if request.user.rol == "2"  %}  <!--Cliente externo -->
 
-              <a href="{% url 'seguimientoLista' %}" >Seguimiento</a>
-              <a href="{% url 'solicitudClientes' %}" >Solicitud</a>
-              <a href="{% url 'solicitudesClienteExterno' %}" >Solicitudes</a>
+              <a href="{% url 'seguimientoLista' %}" class="download" style="color: #000;">Seguimiento</a>
+              <a href="{% url 'solicitudClientes' %}" class="download" style="color: #000;">Ingresar solicitud venta</a>
+              <a href="{% url 'solicitudesClienteExterno' %}" class="download" style="color: #000;">Solicitudes</a>
 
               {% endif %}  
 
 
               {% if request.user.rol == "3"  %}  <!--Cliente interno -->
 
-              <a href="{% url 'seguimientoLista' %}">Seguimiento</a>
-              <a href="{% url 'solicitudClientes' %}" >Solicitud</a>
-              <a href="{% url 'solicitudesClienteExterno' %}" >Solicitudes</a>
-              <a href="{% url 'Ventalocal' %}" >Venta local</a>
+              <a href="{% url 'seguimientoLista' %}" class="download" style="color: #000;">Seguimiento</a>
+              <a href="{% url 'solicitudClientes' %}" class="download" style="color: #000;">Solicitud</a>
+              <a href="{% url 'solicitudesClienteExterno' %}" class="download" style="color: #000;">Solicitudes</a>
+              <a href="{% url 'Ventalocal' %}" class="download" style="color: #000;">Venta local</a>
               {% endif %}  
 
               {% if request.user.rol == "4"  %}  <!--Transportista -->
-               <a href="{% url 'registrarTransporte' %}">Registrar Transporte</a>
-               <a href="{% url 'solicitudesTransportista' %}" >Envios activos</a>
-               <a href="{% url 'transportesRegistrados' %}">Transportes registrados</a>
+               <a href="{% url 'registrarTransporte' %}" class="download" style="color: #000;">Registrar Transporte</a>
+               <a href="{% url 'solicitudesTransportista' %}" class="download" style="color: #000;">Envios activos</a>
+               <a href="{% url 'transportesRegistrados' %}"class="download" style="color: #000;">Transportes registrados</a>
               {% endif %}  
 
               {% if request.user.rol == "5"  %}  <!--Consultor -->
-               <a href="{% url 'seguimientoLista' %}"  >Seguimiento</a>
+               <a href="{% url 'seguimientoLista' %}"  class="download" style="color: #000;">Seguimiento</a>
               {% endif %}  
 
 
               {% if request.user.rol == "6"%}  <!--admin -->
-              <a href="http://127.0.0.1:8000/admin/"  >Sitio Administracion</a>
-              <a href="{% url 'gestionContratos' %}" >Gestion de contratos</a>
-              <a href="{% url 'register' %}" >Registrar Usuario</a>
-              <a href="{% url 'Solicitud' %}" >Solicitud</a>
-              <a href="{% url 'Solicitudes' %}" >Solicitudes</a>
-              <a href="#" >Productores</a>
+              <a href="http://127.0.0.1:8000/admin/"  class="download" style="color: #000;">Gestion Base de Datos</a>
+              <a href="{% url 'gestionContratos' %}" class="download" style="color: #000;">Gestion de contratos</a>
+              <a href="{% url 'register' %}" class="download" style="color: #000;">Registrar Usuario</a>
+              <a href="{% url 'Solicitud' %}" class="download" style="color: #000;">Solicitud</a>
+              <a href="{% url 'Solicitudes' %}" class="download" style="color: #000;">Solicitudes</a>
+              <!-- <a href="#" >Productores</a> -->
               {% endif %}  <!--admin -->
               
               {% if request.user.rol == "7"  %}  <!--Revisor de calidad -->
-              <a href="{% url 'solicitudesRevisor' %}" >Revisiones pendientes</a>
+              <a href="{% url 'solicitudesRevisor' %}" class="download" style="color: #000;">Revisiones pendientes</a>
               {% endif %}  
 
 
@@ -133,7 +133,7 @@
     <!-- Page Content  -->
 
 
-    <div id="content" style="background-image: url(https://i.pinimg.com/originals/38/bd/50/38bd5023828079bfe805b5b1311a4913.jpg);">
+    <div id="content" style="background-image: url(https://img.freepik.com/vector-premium/ilustracion-mercado-granja-alimentos-organicos-caracter-vendedor-granjero-plano-dibujos-animados-vendiendo-frutas-verduras-cosecha-fresca-puesto-mercado-callejero-gente-feria-calle-local-aislado-blanco_213110-367.jpg?w=2000);">
 
 
 
@@ -248,7 +248,7 @@
                > -->
             © 2022 Copyright:
             <a class="text-dark" href="#"
-               >Feria Virtual Maipo Grande</a
+               >Feria Virtual Maipo Grande EQUIPO 2 REMASTERIZADO</a
               >
           </div>
             

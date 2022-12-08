@@ -67,7 +67,8 @@ urlpatterns = [
 
     path('solicitudesClienteExterno/', views.solicitudesClienteExterno, name="solicitudesClienteExterno"),
     path('modificarSolicitudClienteExterno/<int:pk>/', views.modificarSolicitudClienteExterno, name="modificarSolicitudClienteExterno"),
-    path('modificar/<int:id>', views.modProducto, name = 'modificar'),
+    path('modificar/<int:id>', views.modProducto1, name = 'modificar'),
     path('eliminar/<int:id>', views.elimProducto, name = 'eliminar'),
+    path('modificarTransporte/<int:id>', views.modTransporte, name = 'modificarTransporte'),
     path('', include('pwa.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

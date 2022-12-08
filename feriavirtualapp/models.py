@@ -78,7 +78,7 @@ class User(AbstractUser):
     ("7", "Revisor de calidad"),
     )
     dni = models.CharField(max_length=30,null=True)
-    rol = models.CharField(max_length=50, choices = ROLES, null=True)
+    rol = models.CharField(max_length=50, choices = ROLES, null=True, default=3)
     imagen = models.ImageField(upload_to="Perfil",default='Perfil/default.png')
     direccion=models.CharField(max_length=50, null=True)
     codigopostal=models.IntegerField(default=0, null=True)
@@ -116,7 +116,7 @@ class Transporte(models.Model):
     tarifa = models.IntegerField(default=0)
     disponible= models.BooleanField(default=True)
     def __str__(self):
-        return f'{self.transportista.username}: tamaño: {self.tamaño}: Refrigeracion: {self.refrigeracion}: Tarifa: {self.tarifa}'
+        return f'{self.transportista.username}: tamaño: {self.tamaño}: Refrigeracion: {self.refrigeracion}: Tarifa: {self.tarifa} {self.disponible}: Disponibilidad'
 
     
 
