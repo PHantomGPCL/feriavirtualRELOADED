@@ -129,4 +129,4 @@ class FormSolicitudEstado(forms.ModelForm):
 class FormRegistrarTransporte(forms.ModelForm):
     class Meta:
         model = Transporte
-        fields = ('tamaño','refrigeracion','tarifa',)
+        fields = ('tamaño','refrigeracion','tarifa','disponible')

@@ -663,26 +663,13 @@ def webpayplus_anular(request):
     cart = Cart(request)
     return render(request, 'anular.html', {})
 
-def modProducto(request, id):
-    cr = []
-    conn = connection()
-    cursor = conn.cursor()
-    if request.method == 'GET':
-        cursor.execute("SELECT * FROM dbo.feriavirtualapp_producto WHERE id = ?", id)
-        for row in cursor.fetchall():
-            cr.append({"id": row[0], "producto": row[1], "variedad": row[2], "precio": row[7]})
-            conn.close()
-        return render(request, 'mod-productos.html', {'p':cr[0]})
-    if request.method == 'POST':
-        form = FormProductos(request.POST)
-        if form.is_valid():
-            producto = str(form.cleaned_data.get("producto"))
-            variedad = str(form.cleaned_data.get("variedad"))
-            precio = int(form.cleaned_data.get("precio"))
-            cursor.execute("UPDATE dbo.feriavirtualapp_producto SET producto = ?, variedad = ?, precio = ? WHERE id = ?", producto, variedad, precio, id)
-            conn.commit()
-        conn.close()
+def modProducto1(request, id):
+    data = Producto.objects.get(id=id)
+    form = FormProductos(request.POST or None, request.FILES or None, instance=data)
+    if form.is_valid():
+        form.save()
         return redirect('mis-productos')
+    return render(request, 'ingresar-productos.html', {'form':form})
 
 
 def elimProducto(request, id):
@@ -692,6 +679,14 @@ def elimProducto(request, id):
     conn.commit()
     conn.close()
     return redirect('mis-productos')
+
+def modTransporte(request, id):
+    data = Transporte.objects.get(id=id)
+    form = FormRegistrarTransporte(request.POST or None, request.FILES or None, instance=data)
+    if form.is_valid():
+        form.save()
+        return redirect('transportesRegistrados')
+    return render(request, 'registrarTransporte.html', {'form':form})
 
 def subasta(request):
     return render(request, 'subasta.html', {
